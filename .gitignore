@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+__pycache__/
+*.pyc
+
+# Generated video project artifacts
+/paper-explainer-*/
+/renders/
+/snapshots/
+/assets/pages/
+/assets/figures/
+/assets/audio/*.mp3
+/assets/audio/*.wav
+*.pdf
