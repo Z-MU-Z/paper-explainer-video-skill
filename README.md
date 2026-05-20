@@ -6,7 +6,7 @@ It supports Chinese or English narration, extracts real figures and tables from 
 
 ## Sample
 
-![sample preview](docs/assets/sample-paper-explainer-video.png)
+![sample preview](docs/assets/sample-paper-explainer-video.gif)
 
 Sample video: [`docs/assets/sample-paper-explainer-video.mp4`](docs/assets/sample-paper-explainer-video.mp4)
 
