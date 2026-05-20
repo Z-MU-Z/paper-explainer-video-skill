@@ -57,11 +57,149 @@ Chinese example:
 python3 -m pip install --user edge-tts pymupdf
 ```
 
-For full local environment setup, see the environment guides in
-[topo-ai/ai-video-skills](https://github.com/topo-ai/ai-video-skills):
+## Environment Setup
 
-- [Mac setup](https://github.com/topo-ai/ai-video-skills/blob/main/docs/ENVIRONMENT_SETUP.md)
-- [Linux setup](https://github.com/topo-ai/ai-video-skills/blob/main/docs/ENVIRONMENT_SETUP_LINUX.md)
+Restart Codex after installing or updating skills so the skill index is refreshed.
+
+### macOS
+
+Install system tools:
+
+```bash
+brew install node ffmpeg git-lfs
+git lfs install
+```
+
+Install Python packages:
+
+```bash
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user edge-tts pymupdf
+```
+
+Validate the core tools:
+
+```bash
+node -v
+ffmpeg -version
+ffprobe -version
+npx --yes hyperframes --help
+python3 -c "import edge_tts, fitz; print('edge-tts + pymupdf ok')"
+```
+
+### Ubuntu / Debian
+
+Install base tools:
+
+```bash
+sudo apt update
+sudo apt install -y curl git git-lfs ffmpeg python3 python3-venv python3-pip
+git lfs install
+```
+
+Install Node.js 22:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+
+Install Chrome for HyperFrames rendering:
+
+```bash
+wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
+```
+
+If Google Chrome is unavailable, Chromium can work:
+
+```bash
+sudo apt install -y chromium-browser || sudo apt install -y chromium
+```
+
+Install Python packages:
+
+```bash
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user edge-tts pymupdf
+```
+
+### Fedora / RHEL
+
+Install base tools:
+
+```bash
+sudo dnf install -y curl git git-lfs ffmpeg python3 python3-pip
+git lfs install
+```
+
+Install Node.js 22:
+
+```bash
+curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
+sudo dnf install -y nodejs
+```
+
+Install Chrome:
+
+```bash
+sudo dnf install -y fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install -y google-chrome-stable
+```
+
+Install Python packages:
+
+```bash
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user edge-tts pymupdf
+```
+
+### Headless Linux Notes
+
+On a headless server, start with:
+
+```bash
+npx --yes hyperframes doctor
+```
+
+If Chrome launch fails, install common browser runtime libraries:
+
+```bash
+sudo apt install -y \
+  libnss3 libatk-bridge2.0-0 libgtk-3-0 libxss1 libasound2 \
+  libx11-xcb1 libxcomposite1 libxdamage1 libxrandr2 libgbm1
+```
+
+### Install The Skill
+
+Clone this repo and copy the skill into your Codex skills directory:
+
+```bash
+git clone https://github.com/Z-MU-Z/paper-explainer-video-skill.git
+cd paper-explainer-video-skill
+mkdir -p ~/.codex/skills
+cp -R skills/paper-explainer-video ~/.codex/skills/
+```
+
+Then restart Codex.
+
+### Verification Checklist
+
+Run these commands on a configured machine:
+
+```bash
+node -v
+npm -v
+python3 --version
+ffmpeg -version
+ffprobe -version
+google-chrome --version || chromium --version || true
+npx --yes hyperframes --help
+npx --yes hyperframes doctor
+python3 -c "import edge_tts, fitz; print('edge-tts + pymupdf ok')"
+```
 
 ## Repository Layout
 
