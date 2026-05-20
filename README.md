@@ -57,6 +57,12 @@ Chinese example:
 python3 -m pip install --user edge-tts pymupdf
 ```
 
+For full local environment setup, see the environment guides in
+[topo-ai/ai-video-skills](https://github.com/topo-ai/ai-video-skills):
+
+- [Mac setup](https://github.com/topo-ai/ai-video-skills/blob/main/docs/ENVIRONMENT_SETUP.md)
+- [Linux setup](https://github.com/topo-ai/ai-video-skills/blob/main/docs/ENVIRONMENT_SETUP_LINUX.md)
+
 ## Repository Layout
 
 ```text
@@ -68,6 +74,7 @@ python3 -m pip install --user edge-tts pymupdf
 │       └── SKILL.md
 └── docs/
     └── assets/
+        ├── sample-paper-explainer-video.gif
         ├── sample-paper-explainer-video.png
         └── sample-paper-explainer-video.mp4
 ```
@@ -75,3 +82,8 @@ python3 -m pip install --user edge-tts pymupdf
 ## Notes
 
 This repository is intentionally focused on one skill. Generated project folders, intermediate PDF crops, narration audio, and render outputs should live in your working project directory rather than in this repo.
+
+## Acknowledgements
+
+This skill was built with reference to the broader HyperFrames-based video workflow in
+[topo-ai/ai-video-skills](https://github.com/topo-ai/ai-video-skills). Thanks to that project for the environment setup notes and reusable AI video production patterns.
