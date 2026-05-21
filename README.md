@@ -48,7 +48,6 @@ Chinese example:
 ## Requirements
 
 - Node.js and HyperFrames CLI via `npx hyperframes`
-- HyperFrames official Codex skills, installed with `npx --yes skills add heygen-com/hyperframes`
 - FFmpeg / ffprobe
 - Python 3
 - `edge-tts`
@@ -62,11 +61,27 @@ python3 -m pip install --user edge-tts pymupdf
 
 Restart Codex after installing or updating skills so the skill index is refreshed.
 
-This repository only ships the `paper-explainer-video` workflow skill. It does not vendor the official HyperFrames skills such as `hyperframes`, `hyperframes-cli`, `hyperframes-media`, or `hyperframes-registry`; install them from the HyperFrames skill package so they stay up to date:
+This repository only ships the `paper-explainer-video` workflow skill. It does **not** vendor the full HyperFrames official skill pack, because most of that pack is unrelated to paper explainer videos.
+
+For this workflow, the useful HyperFrames knowledge is:
+
+- **Recommended:** `hyperframes` for composition structure, timing, captions, and media layout.
+- **Recommended:** `hyperframes-cli` for `lint`, `inspect`, `preview`, `render`, and troubleshooting.
+- **Optional:** `gsap` if you want richer timeline animation patterns.
+
+Usually unnecessary for this workflow:
+
+- `hyperframes-media`: useful for Kokoro TTS, Whisper transcription, or background removal, but this skill uses `edge-tts` and sentence-level subtitles by default.
+- `hyperframes-registry`: useful only when installing reusable HyperFrames blocks/components.
+- `three`, `typegpu`, `lottie`, `tailwind`, `remotion-to-hyperframes`, `website-to-hyperframes`, and catalog-contribution skills.
+
+If you already use the full HyperFrames skill pack, it is fine to install it:
 
 ```bash
 npx --yes skills add heygen-com/hyperframes
 ```
+
+But it is not a hard requirement for this single-skill repository.
 
 ### macOS
 
