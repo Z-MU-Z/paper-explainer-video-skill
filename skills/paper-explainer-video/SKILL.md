@@ -22,6 +22,21 @@ description: "基于论文 PDF 或论文 URL 制作 60-90 秒 YouTube 论文解�
 - 语言规则：用户指定中文或英文时严格遵守；未指定时默认中文。英文视频应使用英文旁白、英文字幕和英文画面主文案。
 - 默认规格：16:9，`1920x1080`，60-90 秒，YouTube 论文解读风格。
 
+## 依赖技能
+
+本 skill 依赖 HyperFrames 官方 Codex skills 的通用视频制作知识，尤其是：
+
+- `hyperframes`：HTML composition、时间线、字幕和画面编排规则。
+- `hyperframes-cli`：`npx hyperframes lint/inspect/render` 等开发与渲染流程。
+- `hyperframes-media`：TTS、转写、音频预处理相关规则。
+- `hyperframes-registry`：可复用 block/component 安装与接线。
+
+这些 skills 通常通过以下命令安装到项目 `.agents/skills/`，不要复制到本 skill 仓库里长期维护：
+
+```bash
+npx --yes skills add heygen-com/hyperframes
+```
+
 ## 硬性质量标准
 
 - 必须先完整读取论文，提取：标题、问题、核心贡献、方法、实验结果、局限。

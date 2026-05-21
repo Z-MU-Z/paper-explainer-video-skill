@@ -48,6 +48,7 @@ Chinese example:
 ## Requirements
 
 - Node.js and HyperFrames CLI via `npx hyperframes`
+- HyperFrames official Codex skills, installed with `npx --yes skills add heygen-com/hyperframes`
 - FFmpeg / ffprobe
 - Python 3
 - `edge-tts`
@@ -60,6 +61,12 @@ python3 -m pip install --user edge-tts pymupdf
 ## Environment Setup
 
 Restart Codex after installing or updating skills so the skill index is refreshed.
+
+This repository only ships the `paper-explainer-video` workflow skill. It does not vendor the official HyperFrames skills such as `hyperframes`, `hyperframes-cli`, `hyperframes-media`, or `hyperframes-registry`; install them from the HyperFrames skill package so they stay up to date:
+
+```bash
+npx --yes skills add heygen-com/hyperframes
+```
 
 ### macOS
 
