@@ -24,17 +24,16 @@ description: "基于论文 PDF 或论文 URL 制作 60-90 秒 YouTube 论文解�
 
 ## 相关技能
 
-本 skill 的核心流程是论文解析、素材抽取、口播字幕、HyperFrames 编排和渲染。它不需要把完整 HyperFrames 官方 skill pack 复制进本仓库。
+本 skill 的核心流程是论文解析、素材抽取、口播字幕、HyperFrames 编排和渲染。仓库已内置最小相关技能，安装时复制 `skills/*` 即可，不需要完整 HyperFrames 官方 skill pack。
 
 对这个工作流真正有用的是：
 
-- 推荐：`hyperframes`，用于 HTML composition、时间线、字幕和画面编排规则。
-- 推荐：`hyperframes-cli`，用于 `npx hyperframes lint/inspect/preview/render` 等开发与渲染流程。
-- 可选：`gsap`，仅在需要更复杂的 deterministic timeline 动画时使用。
+- `paper-explainer-video`：论文解析、脚本、字幕、旁白、素材抽取和质检流程。
+- `hyperframes`：HTML composition、时间线、字幕、图片/音频素材编排。
+- `hyperframes-cli`：`lint`、`inspect`、`preview`、`render`、`doctor` 等命令流程。
+- `gsap`：可选动画辅助；本工作流只用于轻量进出场和确定性时间线动画。
 
 通常不需要：`hyperframes-media`（本 skill 默认使用 `edge-tts`，不是 Kokoro/Whisper/background-removal 流程）、`hyperframes-registry`（不安装 registry blocks/components 时不需要）、`three`、`typegpu`、`lottie`、`tailwind`、`remotion-to-hyperframes`、`website-to-hyperframes`、`contribute-catalog` 等。
-
-如果项目已经安装完整 HyperFrames skill pack，可以直接使用；如果没有，也不必为了本 skill 强制引入整包。
 
 ## 硬性质量标准
 

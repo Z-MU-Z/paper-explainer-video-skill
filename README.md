@@ -22,11 +22,11 @@ Sample video: [`docs/assets/sample-paper-explainer-video.mp4`](docs/assets/sampl
 
 ## Install
 
-Copy the skill folder into your Codex skills directory:
+Copy the bundled skills into your Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R skills/paper-explainer-video ~/.codex/skills/
+cp -R skills/* ~/.codex/skills/
 ```
 
 Then start a new Codex session so the skill metadata is loaded.
@@ -61,27 +61,18 @@ python3 -m pip install --user edge-tts pymupdf
 
 Restart Codex after installing or updating skills so the skill index is refreshed.
 
-This repository only ships the `paper-explainer-video` workflow skill. It does **not** vendor the full HyperFrames official skill pack, because most of that pack is unrelated to paper explainer videos.
+This repository vendors only the minimal HyperFrames-related skills needed for paper explainer videos:
 
-For this workflow, the useful HyperFrames knowledge is:
-
-- **Recommended:** `hyperframes` for composition structure, timing, captions, and media layout.
-- **Recommended:** `hyperframes-cli` for `lint`, `inspect`, `preview`, `render`, and troubleshooting.
-- **Optional:** `gsap` if you want richer timeline animation patterns.
+- `paper-explainer-video`: the paper-to-video workflow.
+- `hyperframes`: composition structure, timing, captions, media layout.
+- `hyperframes-cli`: `lint`, `inspect`, `preview`, `render`, and troubleshooting.
+- `gsap`: lightweight deterministic timeline animation patterns.
 
 Usually unnecessary for this workflow:
 
 - `hyperframes-media`: useful for Kokoro TTS, Whisper transcription, or background removal, but this skill uses `edge-tts` and sentence-level subtitles by default.
 - `hyperframes-registry`: useful only when installing reusable HyperFrames blocks/components.
 - `three`, `typegpu`, `lottie`, `tailwind`, `remotion-to-hyperframes`, `website-to-hyperframes`, and catalog-contribution skills.
-
-If you already use the full HyperFrames skill pack, it is fine to install it:
-
-```bash
-npx --yes skills add heygen-com/hyperframes
-```
-
-But it is not a hard requirement for this single-skill repository.
 
 ### macOS
 
@@ -202,7 +193,7 @@ Clone this repo and copy the skill into your Codex skills directory:
 git clone https://github.com/Z-MU-Z/paper-explainer-video-skill.git
 cd paper-explainer-video-skill
 mkdir -p ~/.codex/skills
-cp -R skills/paper-explainer-video ~/.codex/skills/
+cp -R skills/* ~/.codex/skills/
 ```
 
 Then restart Codex.
@@ -230,6 +221,14 @@ python3 -c "import edge_tts, fitz; print('edge-tts + pymupdf ok')"
 ├── README.md
 ├── LICENSE
 ├── skills/
+│   ├── gsap/
+│   │   └── SKILL.md
+│   ├── hyperframes/
+│   │   ├── SKILL.md
+│   │   ├── references/
+│   │   └── ...
+│   ├── hyperframes-cli/
+│   │   └── SKILL.md
 │   └── paper-explainer-video/
 │       └── SKILL.md
 └── docs/
